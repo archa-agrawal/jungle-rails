@@ -1,9 +1,12 @@
 require 'rails_helper'
 
 RSpec.describe Product, type: :model do
-  
-  category = Category.new(name: 'new')
-  product = Product.new(name:'plant', price: 1000, quantity: 10, category: category)
+  product = nil
+  before do
+    category = Category.new(name: 'new')
+    product = Product.new(name:'plant', price: 1000, quantity: 10, category: category)
+    product.save
+  end
   
   describe 'Validations' do
 
